@@ -1,8 +1,9 @@
 Metadata-Version: 2.4
 Name: lang_chain_learn
-Version: 0.1
-Requires-Dist: requests
+Version: 0.1.0
+Summary: LangChain learning project
+Author-email: wendson <wendson@example.com>
+Requires-Dist: requests>=2.31.0
 Requires-Dist: langchain
 Requires-Dist: openai
-Requires-Dist: dotenv
-Dynamic: requires-dist
+Requires-Dist: python-dotenv

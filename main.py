@@ -1,5 +1,6 @@
 # 导入langchain包
 from langchain import chat_models
+from langchain_core.output_parsers import StrOutputParser
 from config import DEPLOYMENT_NAME
 
 model = chat_models.init_chat_model(model=DEPLOYMENT_NAME, model_provider="azure_openai")
