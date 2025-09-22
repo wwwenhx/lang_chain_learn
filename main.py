@@ -1,7 +1,7 @@
-from config import API_VERSION, AZURE_ENDPOINT, DEPLOYMENT_NAME, AZURE_API_KEY
 from langchain import chat_models
+from config import DEPLOYMENT_NAME
 
 model = chat_models.init_chat_model(model=DEPLOYMENT_NAME, model_provider="azure_openai")
-question = "你好 你是谁"
+question = "为什么我部署的服务器版本code-server的vscode 第三方库没有代码提示 以及补全 我使用的是python"
 res = model.invoke(question)
 print(res.content)
