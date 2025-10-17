@@ -1,6 +1,6 @@
 import os
 from openai import AzureOpenAI
-from ..config import API_VERSION, AZURE_ENDPOINT, DEPLOYMENT_NAME, AZURE_API_KEY
+from ..configs import API_VERSION, AZURE_ENDPOINT, DEPLOYMENT_NAME, AZURE_API_KEY
 from langchain import chat_models
 
 model = chat_models.init_chat_model(model=DEPLOYMENT_NAME, model_provider="azure")
