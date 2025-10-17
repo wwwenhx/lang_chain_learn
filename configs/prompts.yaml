@@ -1,0 +1,8 @@
+chat:
+  system: |
+    System: You are a helpful assistant.
+    This is the conversation history:
+    {chat_history}
+  user: |
+    Answer the following question clearly:
+    {question}

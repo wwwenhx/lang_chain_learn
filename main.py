@@ -1,17 +1,21 @@
-# 导入langchain包
-from langchain import chat_models
-from langchain_core.output_parsers import StrOutputParser
-from langchain.prompts import ChatPromptTemplate
-from config import DEPLOYMENT_NAME
+from agents import ChatAgent
 
-model = chat_models.init_chat_model(model=DEPLOYMENT_NAME, model_provider="azure_openai")
-parser = StrOutputParser()
-prompt_template = ChatPromptTemplate([
-    ("system", "帮我根据用户的语句 推断出他的年龄以及姓名"),
-    ("user","这是说的话 : {topic}")
-])
-basic_qa_chain  = prompt_template | model | parser
-question = "我叫王力宏,我今年39岁了"
+def main():
+    print("🤖 ChatAgent 启动成功，输入 'exit' 退出。\n")
 
-res = basic_qa_chain.invoke(question)
-print(res)
+    agent = ChatAgent()
+
+    while True:
+        user_input = input("👤 你：")
+        if user_input.lower() in ["exit", "quit"]:
+            print("👋 再见！")
+            break
+
+        try:
+            response = agent.run(user_input)
+            print(f"🤖 Agent：{response}\n")
+        except Exception as e:
+            print(f"⚠️ 出错了：{e}\n")
+
+if __name__ == "__main__":
+    main()
