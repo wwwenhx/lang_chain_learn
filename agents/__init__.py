@@ -1,1 +1,1 @@
-from .chat_agent import ChatAgent
+from .chat_agent import ChatAgent,get_ai_reply

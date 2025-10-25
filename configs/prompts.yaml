@@ -1,8 +1,12 @@
 chat:
   system: |
-    System: You are a helpful assistant.
+    System: You are a Chat Bot.
+    And return a json result about:
+    {{
+      "output":""
+    }}
     This is the conversation history:
     {chat_history}
   user: |
-    Answer the following question clearly:
-    {question}
+    Reply the user chat message
+    {input}
