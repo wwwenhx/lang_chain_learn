@@ -12,6 +12,7 @@ def main():
             break
 
         try:
+            user_input="弓月城藏剑的具体循环"
             response = agent.run(user_input)
             print(f"🤖 Agent：{response}\n")
         except Exception as e:
