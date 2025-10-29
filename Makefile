@@ -8,11 +8,11 @@ SERVER_IP=your.server.ip
 SERVER_PATH=/opt/langchain-agent
 
 # 1️⃣ 构建 Docker 镜像
-build:
+docker-build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
 
 # 2️⃣ 运行本地容器（测试）
-run:
+docker-run:
 	docker run -d -p 8000:8000 --network napcat-net --name $(IMAGE_NAME) $(IMAGE_NAME):$(TAG)
 
 # 4️⃣ 在服务器上运行容器（自动停止旧容器）
