@@ -11,9 +11,14 @@ SERVER_PATH=/opt/langchain-agent
 docker-build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
 
+# 停止并删除旧容器
+docker-stop:
+	docker stop $(IMAGE_NAME) || true
+	docker rm $(IMAGE_NAME) || true
+
 # 2️⃣ 运行本地容器（测试）
-docker-run:
-	docker run -d -p 8000:8000 --network napcat-net --name $(IMAGE_NAME) $(IMAGE_NAME):$(TAG)
+docker-run: docker-stop
+	docker run -d -p 8000:8000 --network napcat-net --name $(IMAGE_NAME) --pull=never $(IMAGE_NAME):$(TAG)
 
 # 4️⃣ 在服务器上运行容器（自动停止旧容器）
 deploy:
