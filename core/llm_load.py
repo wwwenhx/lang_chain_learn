@@ -1,7 +1,7 @@
 from langchain import chat_models
 from langchain_openai import ChatOpenAI
 import os
-from configs import APK_API_KEY
+from configs import APK_API_KEY,BOT_ID,APK_BOT_BASE_URL
 import threading
 
 # 单例变量
@@ -14,8 +14,8 @@ def llm_load():
         with _lock:
             if _model_instance is None:
                 _model_instance = ChatOpenAI(
-                    model="bot-20251029152124-pqkmc",
-                    base_url="https://ark.cn-beijing.volces.com/api/v3/bots",
+                    model=BOT_ID,
+                    base_url=APK_BOT_BASE_URL,
                     api_key=APK_API_KEY,
                 )
     return _model_instance
