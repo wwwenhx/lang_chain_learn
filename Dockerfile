@@ -1,5 +1,5 @@
 # 使用官方 Python 镜像（更轻量的 slim 版）
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 # 设置工作目录
 WORKDIR /app
@@ -9,6 +9,9 @@ ENV TZ=Asia/Shanghai
 
 # 复制依赖文件并安装
 COPY requirements.txt .
+
+RUN mkdir -p /root/.pip && \
+    echo "[global]\nindex-url = https://pypi.tuna.tsinghua.edu.cn/simple" > /root/.pip/pip.conf
 
 RUN pip install --no-cache-dir -r requirements.txt
 
