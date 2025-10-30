@@ -1,9 +1,9 @@
-from agents import ChatAgent
+from agents import chat_agent
 
 def main():
     print("🤖 ChatAgent 启动成功，输入 'exit' 退出。\n")
 
-    agent = ChatAgent()
+    agent = chat_agent.SearchAgent()
 
     while True:
         user_input = input("👤 你：")

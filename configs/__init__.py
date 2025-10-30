@@ -5,3 +5,4 @@ from .settings import AZURE_API_KEY
 from .settings import APK_API_KEY
 from .settings import BOT_ID
 from .settings import APK_BOT_BASE_URL
+from .settings import TAVILY_API_KEY

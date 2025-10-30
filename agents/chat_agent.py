@@ -21,3 +21,11 @@ def get_ai_reply(msg:str) -> str:
     agent = ChatAgent()
     response = agent.run(msg)
     return response
+
+class SearchAgent (BaseAgent):
+    def __init__(self):
+        self.agent = chat_chain.create_agent()
+
+    def run(self, user_input: str) -> str:
+        rs=self.agent.run(user_input)
+        return rs
